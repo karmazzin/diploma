@@ -5,7 +5,8 @@ WORKDIR /usr/src/app
 
 COPY package.json /usr/src/app/
 RUN npm i -g nodemon \
-    && npm i
+    && npm i \
+    && npm build
 
 COPY . /usr/src/app
 

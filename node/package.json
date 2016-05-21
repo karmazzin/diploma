@@ -11,11 +11,13 @@
     "mongoose": "^4.4.17"
   },
   "devDependencies": {
-    "nodemon": "^1.9.2"
+    "nodemon": "^1.9.2",
+    "bower": "^1.7.9"
   },
   "scripts": {
     "start": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "bower i"
   },
   "author": "",
   "license": "ISC"
