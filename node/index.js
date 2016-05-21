@@ -14,8 +14,8 @@ const hbs = exphbs.create({
     partialsDir: ['views/modules/']
 });
 
-app.engine('html', hbs.engine);
 app.set('view engine', 'html');
+app.engine('html', hbs.engine);
 
 app.use(express.static('public'));
 app.use(enrouten({ directory: 'routes' }));
