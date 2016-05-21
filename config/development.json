@@ -1,0 +1,8 @@
+{
+  "mongo": {
+    "host": "127.0.0.1",
+    "port": "",
+    "status": true
+  },
+  "port": 9090
+}
