@@ -4,6 +4,9 @@ module.exports = {
     home(req, res) {
         res.render('pages/home', { hello: 1, title: 'Панель управления'});
     },
+    login(req, res) {
+        res.render('pages/login', { hello: 1, title: 'Вход в систему', layout: false});
+    },
     sensors(req, res) {
         res.render('pages/home', { hello: 1, title: 'Датчики'});
     },

@@ -5,14 +5,30 @@ const app = express();
 const exphbs = require('express-handlebars');
 const config = require('./config');
 
+const bodyParser = require('body-parser');
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded());
+// in latest body-parser use like below.
+app.use(bodyParser.urlencoded({ extended: true }));
+
 const hbs = exphbs.create({
     extname: '.html',
     layoutsDir: 'views/layouts/',
     defaultLayout: 'base',
-    // Uses multiple partials dirs, templates in "shared/templates/" are shared
-    // with the client-side of the app (see below).
     partialsDir: ['views/modules/']
 });
+
+const mongoose = require("mongoose");
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
+mongoose.connect('mongodb://127.0.0.1:32771/local');
+
+app.use(session({
+    secret: 'i need more beers',
+    resave: false,
+    saveUninitialized: false,
+    store: new MongoStore({ mongooseConnection: mongoose.connection })
+}));
 
 app.set('view engine', 'html');
 app.engine('html', hbs.engine);
